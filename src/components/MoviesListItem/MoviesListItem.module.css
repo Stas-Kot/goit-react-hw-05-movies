@@ -1,0 +1,4 @@
+.movieItem:visited,
+.movieItem:active {
+  color: inherit;
+}
