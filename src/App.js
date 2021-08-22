@@ -1,11 +1,12 @@
 import { lazy, Suspense } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import './App.css';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import AppBar from 'components/AppBar/AppBar';
 import Spinner from './components/Loader/Loader';
+// import NotFoundView from './views/NotFoundView/NotFoundView.jsx';
 // import HomeView from './views/HomeView';
 // import Movies from './views/Movies';
 // import MovieInfo from './views/MovieInfo/MovieInfo';
@@ -29,12 +30,20 @@ function App() {
           <Route path="/movies" exact>
             <Movies />
           </Route>
+
           <Route path="/movies/:movieId">
             <MovieInfo />
           </Route>
-          <Route>
+
+          <Route path="/" exact>
             <HomeView />
           </Route>
+
+          {/* <Route>
+            <NotFoundView />
+          </Route> */}
+
+          <Redirect to="/" />
         </Switch>
       </Suspense>
       <ToastContainer autoClose={3000} />
