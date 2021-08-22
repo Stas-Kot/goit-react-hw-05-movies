@@ -16,20 +16,16 @@ export default function Cast() {
   return (
     <ul>
       {cast &&
-        cast.map(actor => (
-          <li key={actor.id}>
+        cast.map(({ profile_path, name, character }, index) => (
+          <li className={s.castItem} key={index}>
             <img
               className={s.actorPhoto}
-              src={
-                imgBasePath + actor.profile_path !==
-                'https://image.tmdb.org/t/p/w500null'
-                  ? imgBasePath + actor.profile_path
-                  : noPhoto
-              }
-              alt=""
+              src={profile_path ? imgBasePath + profile_path : noPhoto}
+              alt={'here must be photo of ' + name + '...'}
             />
-            <p>{actor.name}</p>
-            <p> Character: {actor.character}</p>
+
+            <p>{name}</p>
+            <p> Character: {character}</p>
           </li>
         ))}
     </ul>

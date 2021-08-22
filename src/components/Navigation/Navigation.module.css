@@ -6,6 +6,9 @@
   color: #2a363b;
   font-size: 18px;
 }
+.link:hover {
+  text-decoration: underline;
+}
 .activeLink {
   composes: link;
   color: #2196f3;

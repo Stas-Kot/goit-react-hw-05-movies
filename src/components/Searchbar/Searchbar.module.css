@@ -5,3 +5,8 @@
   width: 300px;
   margin-right: 5px;
 }
+.input:focus {
+  border: 2px solid rgb(110, 162, 222);
+  box-shadow: rgb(110 162 222) 0px 0px 10px;
+  outline: none;
+}

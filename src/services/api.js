@@ -38,8 +38,12 @@ export function fetchMovieCast(movieId) {
     });
 }
 
-export function fetchMovieReviews() {
+export function fetchMovieReviews(movieId) {
   return axios(
-    `movie/{movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
-  );
+    `movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
+  )
+    .then(({ data }) => data.results)
+    .catch(error => {
+      toast.error(error.message);
+    });
 }
